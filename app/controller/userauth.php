@@ -1,18 +1,30 @@
 <?php 
-include 'koneksi.php';
+include '../koneksi/koneksi.php';
+include '../model/userModel.php';
+session_start();
   class user{
-    private $konek;
+    private $usermodel;
     public function __construct($database){
-        $this->konek = $database;
+        $this->usermodel = new model($database);
     }
     public function userLogin($email,$password){
-        $sql = "SELECT email,password FROM user";
-        $verifypass = password_verify($password,PASSWORD_DEFAULT);
-            $prepare = mysqli_prepare($this->konek,$sql);
-            $prepare->bind_param('ss',$email,$verifypass);
-       $result = $prepare->execute();
-       return $result;
+
+        $user = $this->usermodel->userModel($email);
+        if ($user && password_verify($password,$user['password'])){
+           $_SESSION['user'] = [
+                'email' => $email
+           ];
+        }else {
+            echo "login gagal";
+        }
     }
+    public function authentikasiSesi(){
+        if (!isset($_SESSION['user'])){
+            header('location:index.php');
+            exit();
+        }
+    }
+
   }
 
 ?>
