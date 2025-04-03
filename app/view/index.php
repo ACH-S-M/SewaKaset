@@ -1,7 +1,7 @@
 <?php 
 include '../controller/userauth.php';
 include '../koneksi/koneksi.php';
-  
+
 
 ?>
 <!DOCTYPE html>
@@ -24,28 +24,19 @@ include '../koneksi/koneksi.php';
          <h1 id="Login" onclick="ubahHalaman('../asset/html/loginpage.html')">Login</h1>
          <h1 id="Daftar" onclick="ubahHalaman('../asset/html/signuppage.html')">Daftar </h1>
         </div>
-             <form action="login" method="post" class="login h-full flex flex-col justify-center items-center m-6 gap-4" >
-                 <input type="text" placeholder="username" class="border-2 p-2 w-1/2">
-                 <input type="password" placeholder="Password" class="border-2 p-2 w-1/2">
+             <form action="../controller/login.php" method="post" class="login h-full flex flex-col justify-center items-center m-6 gap-4" >
+                 <input type="text" name="email" placeholder="email" class="border-2 p-2 w-1/2">
+                 <input type="password" name="password" placeholder="Password" class="border-2 p-2 w-1/2">
                  <button type="submit" class="bg-purple-400 text-white p-3 w-1/2 rounded-md">Login</button>
              </form>
              <form action="login" method="post" class="daftar h-full flex flex-col justify-center items-center m-6 gap-4 hidden" >
                      <input type="text" placeholder="Nama" class="border-2 p-2 w-1/2">
                      <input type="text" placeholder="username" class="border-2 p-2 w-1/2">
                      <input type="password" placeholder="Password" class="border-2 p-2 w-1/2">
-                     <button type="submit" class="bg-purple-400 text-white p-3 w-1/2 rounded-md">Login</button>
+                     <button type="submit" class="bg-purple-400 text-white p-3 w-1/2 rounded-md">Daftar</button>
                  </form>
 
      </div>
-    <script>
-        document.querySelector('h1[onclick*="loginpage.html"]').addEventListener('click',function(){
-            document.querySelector('.login').classList.remove('.hidden')
-            document.querySelector('.daftar').classList.add('.hidden')
-        });
-        document.querySelector('h1[onclick*="signuppage.html"]').addEventListener('click',function(){
-            document.querySelector('.login').classList.add('.hidden')
-            document.querySelector('.daftar').classList.remove('.hidden')
-        })
-    </script>
+    <script src="/app/asset/js/main.js">  </script>
 </body>
 </html>

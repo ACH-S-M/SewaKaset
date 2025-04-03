@@ -11,11 +11,10 @@ session_start();
 
         $user = $this->usermodel->userModel($email);
         if ($user && password_verify($password,$user['password'])){
-           $_SESSION['user'] = [
-                'email' => $email
-           ];
+            header('location:../view/menu.php');
         }else {
-            echo "login gagal";
+            echo "<script>alert('login gagal, password atau email salah')</script>";
+            header("location:../view/index.php");
         }
     }
     public function authentikasiSesi(){
