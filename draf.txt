@@ -2,7 +2,7 @@ let login = document.getElementById('Login')
 let daftar = document.getElementById('Daftar')
     function ubahHalaman(element){
         if (element === '../asset/html/loginpage.html'){
-           login.classList.add('onClickKelas')
+           login.classList.add('onsssClickKelas')
            daftar.classList.remove('onClickKelas')
         }else if(element === '../asset/html/signuppage.html') {
             daftar.classList.add('onClickKelas')

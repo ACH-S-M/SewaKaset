@@ -12,6 +12,11 @@ include '../koneksi/koneksi.php';
     <title>Login Page</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
+        .isSelected{
+            background-color: skyblue;
+            width: auto;
+            height: 5px;
+        }
         .hidden {
             display: none;
         }
