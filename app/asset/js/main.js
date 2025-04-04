@@ -1,3 +1,4 @@
+
  // ini buat daftar ambil dom buat masing masing nutupin tipe nya 
 
    let Login = document.getElementById('Login')
@@ -14,8 +15,5 @@
         Login.classList.remove('isSelected')
         Daftar.classList.add('isSelected')
     })
-
-
-
 
 

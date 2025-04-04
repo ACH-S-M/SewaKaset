@@ -1,3 +1,12 @@
+<?php 
+include '../controller/userauth.php';
+include '../koneksi/koneksi.php';
+
+$user = new user($koneksi);
+$user->authentikasiSesi();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +16,6 @@
 </head>
 <body>
     <h1>Menu</h1>
-    <?php 
-    echo $_SESSION['email'];
-    ?>
+          <?php echo $_SESSION['email'] ?>
 </body>
 </html>

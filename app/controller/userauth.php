@@ -12,7 +12,9 @@ session_start();
         $user = $this->usermodel->userModel($email);
         if ($user && password_verify($password,$user['password'])){
             $_SESSION['email'] = $user['email'];
-            header('location:../view/menu.php');
+            // header('location:http://sewakaset.test/');
+            header('location:menu.php');
+
         }else {
             header('location=/index.php?error=gagal');
             exit;
@@ -20,7 +22,7 @@ session_start();
     }
     
     public function authentikasiSesi(){
-        if (!isset($_SESSION['user'])){
+        if (!isset($_SESSION['email'])){
             header('location=/index.php');
             exit();
         }
