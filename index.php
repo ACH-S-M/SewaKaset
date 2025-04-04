@@ -19,10 +19,12 @@ include __DIR__ . '/app/koneksi/koneksi.php';
                 <li class="text-white hover:text-yellow-500 cursor-pointer">Produk</li>
                 <li class="text-white hover:text-yellow-500 cursor-pointer">Keranjang</li>
                 <li class="text-white hover:text-yellow-500 cursor-pointer">Riwayat transaksi</li>
-            </ul>
-            <button class="bg-purple-400 text-white rounded-md px-6 py-2 " id="btnLogin" >Login</button>
-      </nav>
-    
+                <?php echo $_SESSION['username']    ?>
+                </ul>
+                <button class="bg-purple-400 text-white rounded-md px-6 py-2 " id="btnLogin" >Login</button>
+                </nav>
+              
+                
       <script>let btnLogin = document.getElementById('btnLogin')
                 btnLogin.addEventListener('click',function(){
                  window.location.href = "http://sewakaset.test/app/view/login.php"})

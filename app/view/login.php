@@ -8,7 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     ];
 $auth = new user($koneksi);
 $auth->userLogin($userData['email'],$userData['password']);
+
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

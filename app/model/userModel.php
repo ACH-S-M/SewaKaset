@@ -7,7 +7,7 @@ class model{
         $this->koneksi = $database;
     }
     public function userModel($email){
-      $sql = "SELECT email,password,roles FROM user where email=?";
+      $sql = "SELECT username,email,password,roles FROM user where email=?";
       $prepare = mysqli_prepare($this->koneksi,$sql);
       $prepare->bind_param('s',$email);
        $prepare->execute();
