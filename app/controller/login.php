@@ -8,6 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     ];
 }
 $auth = new user($koneksi);
-$auth->userLogin($userData['email'],$userData['password'])
-
+$auth->userLogin($userData['email'],$userData['password']);
+$auth->authentikasiSesi();
+if (!isset($_SESSION['email'])){
+    header('location=/index.php');
+    exit;
+}
 ?>

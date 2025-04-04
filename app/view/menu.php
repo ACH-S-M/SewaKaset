@@ -7,5 +7,8 @@
 </head>
 <body>
     <h1>Menu</h1>
+    <?php 
+    echo $_SESSION['email'];
+    ?>
 </body>
 </html>
