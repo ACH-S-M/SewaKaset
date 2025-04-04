@@ -29,7 +29,12 @@ session_start();
             exit();
         }
     }
-
+    public function logout(){
+        session_unset();
+        session_destroy();
+        header("location: http://sewakaset.test/");
+        exit();
+    }
   }
 
 ?>

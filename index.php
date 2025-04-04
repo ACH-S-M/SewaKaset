@@ -19,9 +19,19 @@ include __DIR__ . '/app/koneksi/koneksi.php';
                 <li class="text-white hover:text-yellow-500 cursor-pointer">Produk</li>
                 <li class="text-white hover:text-yellow-500 cursor-pointer">Keranjang</li>
                 <li class="text-white hover:text-yellow-500 cursor-pointer">Riwayat transaksi</li>
-                <?php echo $_SESSION['username']    ?>
                 </ul>
-                <button class="bg-purple-400 text-white rounded-md px-6 py-2 " id="btnLogin" >Login</button>
+                        <?php if (!isset($_SESSION['username'])):?>
+                            <button class="bg-purple-400 text-white rounded-md px-6 py-2 " id="btnLogin" >Login</button>
+                        <?php else:  ?>   
+                            <div class="person">
+                                <p class="text-white"><?php   
+                                    echo $_SESSION['username'] ;
+                                ?></p>
+                            </div>
+                            <form action="app/view/logout.php">
+                                <button type="submit" class="bg-purple-400 text-white px-6 py-2">Logout</button>
+                            </form>
+                        <?php endif?>
                 </nav>
               
                 
