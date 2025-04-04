@@ -43,10 +43,10 @@ $auth->userLogin($userData['email'],$userData['password']);
                  <input type="password" name="password" placeholder="Password" class="border-2 p-2 w-1/2">
                  <button type="submit" class="bg-purple-400 text-white p-3 w-1/2 rounded-md">Login</button>
              </form>
-             <form action="login" method="post" class="daftar h-full flex flex-col justify-center items-center m-6 gap-4 hidden" >
-                     <input type="text" placeholder="Nama" class="border-2 p-2 w-1/2">
-                     <input type="text" placeholder="username" class="border-2 p-2 w-1/2">
-                     <input type="password" placeholder="Password" class="border-2 p-2 w-1/2">
+             <form action="register.php" method="post" class="daftar h-full flex flex-col justify-center items-center m-6 gap-4 hidden" >
+                     <input type="text" name="username" placeholder="username" class="border-2 p-2 w-1/2">
+                     <input type="text" name="email" placeholder="email" class="border-2 p-2 w-1/2">
+                     <input type="password" name="password" placeholder="Password" class="border-2 p-2 w-1/2">
                      <button type="submit" class="bg-purple-400 text-white p-3 w-1/2 rounded-md">Daftar</button>
                  </form>
 

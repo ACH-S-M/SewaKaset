@@ -9,10 +9,10 @@ session_start();
         $this->usermodel = new model($database);
     }
     public function userLogin($email,$password){
-        $user = $this->usermodel->userModel($email);
-        if ($user && password_verify($password,$user['password'])){
-            $_SESSION['email'] = $user['email'];
-            $_SESSION['username'] = $user['username'];
+        $login = $this->usermodel->userModelLogin($email);
+        if ($login && password_verify($password,$login['password'])){
+            $_SESSION['email'] = $login['email'];
+            $_SESSION['username'] = $login['username'];
             header('location:http://sewakaset.test/');
         }else {
           echo "<script>
