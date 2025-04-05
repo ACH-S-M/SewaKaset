@@ -1,6 +1,7 @@
 <?php 
 include __DIR__ . '/app/controller/userauth.php';
 include __DIR__ . '/app/koneksi/koneksi.php';
+include __DIR__.'/app/model/produkModel.php';
 
 
 ?>
@@ -54,6 +55,10 @@ include __DIR__ . '/app/koneksi/koneksi.php';
                     </section>
                     <section class="p-6 bg-red-500 h-auto">
                         <h1 class="text-3xl font-bold">Produk Terpopuler</h1>
+                        <?php foreach($listproduk as $barang) : ?>
+                           <h1>  <?= $barang['IDVCD'] ?></h1>
+                           <h1>  <?= $barang['namakaset'] ?></h1>
+                        <?php endforeach ?>
                          <div class="container-card bg-blue-200 w-full h-auto mt-5 flex flex-wrap p-2 gap-6 justify-center">
                                <div class="kotak w-[200px] h-[200px] bg-white"></div>
                                <div class="kotak w-[200px] h-[200px] bg-white"></div>
