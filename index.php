@@ -20,12 +20,12 @@ include __DIR__ . '/app/koneksi/koneksi.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-      <nav class="flex w-full h-auto p-6 justify-between items-center fixed " id="nav">
+      <nav class="flex bg-transparent w-full h-auto p-6 justify-between items-center fixed z-50 " id="nav">
             <ul class="w-3/4 flex gap-7 ">
-                <li class="text-black hover:text-yellow-500 cursor-pointer">Dashboard</li>
-                <li class="text-black hover:text-yellow-500 cursor-pointer">Produk</li>
-                <li class="text-black hover:text-yellow-500 cursor-pointer">Keranjang</li>
-                <li class="text-black hover:text-yellow-500 cursor-pointer">Riwayat transaksi</li>
+                <li class="text-white hover:text-yellow-500 cursor-pointer">Dashboard</li>
+                <li class="text-white hover:text-yellow-500 cursor-pointer">Produk</li>
+                <li class="text-white hover:text-yellow-500 cursor-pointer">Keranjang</li>
+                <li class="text-white hover:text-yellow-500 cursor-pointer">Riwayat transaksi</li>
                 </ul>
                         <?php if (!isset($_SESSION['username'])):?>
                             <button class="bg-purple-400 text-white rounded-md px-6 py-2 " id="btnLogin" >Login</button>
@@ -41,11 +41,19 @@ include __DIR__ . '/app/koneksi/koneksi.php';
                             </form>
                         <?php endif?>
                 </nav>
-              <main class="h-auto bg-yellow-500 pt-20">
-                    <section class="h-screen">
-                            <div class="container-image w-3/4 bg-yellow-300 mx-auto rounded-lg">
-                                <img src="app/asset/image/PS5kaset.webp" alt="Ps5">
+              <main class="h-auto">
+                    <section class="h-screen w-full bg-red-200 hero flex items-center justify-end pt-4  pr-20 " id="hero">
+                        <div class="relative w-80 h-40 ">
+                            <div class="absolute inset-0 bg-white/10 backdrop-blur-md rounded-md"></div>
+                            <div class="relative p-4">
+                                <h1 class="text-white text-3xl font-bold">
+                                Nikmati Diskon 20% Setiap pembelian kaset game
+                                </h1>
                             </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h1>Produk terpopuler</h1>
                     </section>
               </main>
               

@@ -16,4 +16,8 @@
         Daftar.classList.add('isSelected')
     })
 
+    // 
+   function gantiBanner(){
+  
+   }
 
