@@ -55,17 +55,14 @@ include __DIR__.'/app/model/produkModel.php';
                     </section>
                     <section class="p-6 bg-red-500 h-auto">
                         <h1 class="text-3xl font-bold">Produk Terpopuler</h1>
-                        <?php foreach($listproduk as $barang) : ?>
-                           <h1>  <?= $barang['IDVCD'] ?></h1>
-                           <h1>  <?= $barang['namakaset'] ?></h1>
-                        <?php endforeach ?>
-                         <div class="container-card bg-blue-200 w-full h-auto mt-5 flex flex-wrap p-2 gap-6 justify-center">
-                               <div class="kotak w-[200px] h-[200px] bg-white"></div>
-                               <div class="kotak w-[200px] h-[200px] bg-white"></div>
-                               <div class="kotak w-[200px] h-[200px] bg-white"></div>
-                               <div class="kotak w-[200px] h-[200px] bg-white"></div>
-                               <div class="kotak w-[200px] h-[200px] bg-white"></div>
-                         </div>
+                        <div class="container-card bg-blue-200 w-full h-auto mt-5 flex flex-wrap p-2 gap-6 justify-center">
+                                <?php foreach($listproduk as $barang) : ?>
+                                   <div class="card bg-white w-[200px] h-[200px] ">
+                                      <h1><?=$barang['IDVCD'] ?></h1>
+                                      <h1><?=$barang['namakaset'] ?></h1>
+                                   </div>
+                                <?php endforeach ?>    
+                         </div>  
                     </section>
               </main>
       <script src="app/asset/js/navbar.js">  </script>
