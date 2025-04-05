@@ -1,18 +1,4 @@
-function getDetail(link){
-    fetch(link)
-    .then(respone => respone.text())
-    .then ( html =>{
-         document.querySelector('.main').innerHTML = html;
-         let navbarnya = document.getElementById('nav');
-         if (navbarnya){
-            navbarnya.classList.add('nav-bg')
-         }else {
-            alert('gagal')
-         }
-      }
-    )
-    .catch(error => alert('errornih ' + error))
 
+function goDetail(){
+    window.location.href = "http://sewakaset.test/app/view/detail.php";
 }
-
-//onclick="getDetail('app/view/detail.php')"
