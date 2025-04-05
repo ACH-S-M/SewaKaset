@@ -11,7 +11,7 @@ include __DIR__ . '/../koneksi/koneksi.php';
     }
     public function getProduk(){
         //select produk disini 
-        $sql = "SELECT * from vcd limit 5";
+        $sql = "SELECT * from vcd limit 4";
         $query = mysqli_prepare($this->koneksi,$sql);
          if ($query->execute()){
             $result = $query->get_result();
