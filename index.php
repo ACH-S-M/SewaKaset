@@ -10,16 +10,22 @@ include __DIR__ . '/app/koneksi/koneksi.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VCD </title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body {
+            height: 900vh;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+    <link rel="stylesheet" href="app/asset/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-      <nav class="flex w-full h-auto bg-red-400 p-6 justify-between items-center fixed" >
+      <nav class="flex w-full h-auto p-6 justify-between items-center fixed " id="nav">
             <ul class="w-3/4 flex gap-7 ">
-                <li class="text-white hover:text-yellow-500 cursor-pointer">Dashboard</li>
-                <li class="text-white hover:text-yellow-500 cursor-pointer">Produk</li>
-                <li class="text-white hover:text-yellow-500 cursor-pointer">Keranjang</li>
-                <li class="text-white hover:text-yellow-500 cursor-pointer">Riwayat transaksi</li>
+                <li class="text-black hover:text-yellow-500 cursor-pointer">Dashboard</li>
+                <li class="text-black hover:text-yellow-500 cursor-pointer">Produk</li>
+                <li class="text-black hover:text-yellow-500 cursor-pointer">Keranjang</li>
+                <li class="text-black hover:text-yellow-500 cursor-pointer">Riwayat transaksi</li>
                 </ul>
                         <?php if (!isset($_SESSION['username'])):?>
                             <button class="bg-purple-400 text-white rounded-md px-6 py-2 " id="btnLogin" >Login</button>
@@ -35,11 +41,29 @@ include __DIR__ . '/app/koneksi/koneksi.php';
                             </form>
                         <?php endif?>
                 </nav>
+              <main class="h-auto bg-yellow-500 pt-20">
+                    <section class="h-screen">
+                            <div class="container-image w-3/4 bg-yellow-300 mx-auto rounded-lg">
+                                <img src="app/asset/image/PS5kaset.webp" alt="Ps5">
+                            </div>
+                    </section>
+              </main>
               
+              
+
+      <script>
+            let navbar = document.getElementById('nav');
+            window.addEventListener('scroll',function(){
+                if (scrollY > 100){
+                    navbar.classList.add('nav-bg')
+                }else (
+                    navbar.classList.remove('nav-bg')
+                )
+            })
                 
-      <script>let btnLogin = document.getElementById('btnLogin')
+            let btnLogin = document.getElementById('btnLogin')
                 btnLogin.addEventListener('click',function(){
                  window.location.href = "http://sewakaset.test/app/view/login.php"})
-                 </script>
+      </script>
 </body>
 </html>
