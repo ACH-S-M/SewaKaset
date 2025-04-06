@@ -16,7 +16,7 @@
                 <li class="text-white hover:text-yellow-500 cursor-pointer">Riwayat transaksi</li>
                 </ul>
                         <?php if (!isset($_SESSION['username'])):?>
-                            <button class="bg-purple-400 text-white rounded-md px-6 py-2 " id="btnLogin" >Login</button>
+                            <button class="bg-purple-400 text-white rounded-md px-6 py-2 " onclick="window.location.href = 'http:/\/sewakaset.test/app/view/login.php'" >Login</button>
                         <?php else:  ?>   
                             <div class="person py-2 px-6 flex gap-4 items-center cursor-pointer" id="profile">
                                  <i class="fa-solid fa-user text-white text-xl"></i>
@@ -35,7 +35,7 @@
                         window.location.href = "http://sewakaset.test/app/view/keranjang.php";
                     }
                 </script>
-                <script src="app/asset/js/navbar.js">  </script>
+                <script src="app/asset/js/navbar.js"></script>
                 <script src="/app/asset/js/ajax.js"></script>
 </body>
 </html>

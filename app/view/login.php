@@ -15,48 +15,65 @@ $auth->userLogin($userData['email'],$userData['password']);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
-        .isSelected{
-            background-color: skyblue;
-            width: auto;
-            height: 5px;
-        }
-        .hidden {
-            display: none;
-        }
-    
-        
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .isSelected {
+      @apply border-b-4 border-sky-500 text-sky-500;
+    }
+  </style>
 </head>
-<body  class="bg-blue-200">
-<div class=" w-3/4 h-auto mx-auto my-24 pb-7 bg-white rounded-md  " >
-        <div class="menu flex gap-7 pb-4 text-2xl cursor-pointer pl-2 pt-2">
-         <h1 id="Login" onclick="ubahHalaman('../asset/html/loginpage.html')" class="isSelected">Login</h1>
-         <h1 id="Daftar" onclick="ubahHalaman('../asset/html/signuppage.html')">Daftar </h1>
-        </div>
-             <form action="login.php" method="post" class="login h-full flex flex-col justify-center items-center m-6 gap-4" >
-                 <input type="text" name="email" placeholder="email" class="border-2 p-2 w-1/2">
-                 <input type="password" name="password" placeholder="Password" class="border-2 p-2 w-1/2">
-                 <button type="submit" class="bg-purple-400 text-white p-3 w-1/2 rounded-md">Login</button>
-             </form>
-             <form action="register.php" method="post" class="daftar h-full flex flex-col justify-center items-center m-6 gap-4 hidden" >
-                     <input type="text" name="username" placeholder="username" class="border-2 p-2 w-1/2">
-                     <input type="text" name="email" placeholder="email" class="border-2 p-2 w-1/2">
-                     <input type="password" name="password" placeholder="Password" class="border-2 p-2 w-1/2">
-                     <button type="submit" class="bg-purple-400 text-white p-3 w-1/2 rounded-md">Daftar</button>
-                 </form>
+<body class="bg-blue-100 flex items-center justify-center min-h-screen">
 
-     </div> 
-     <?php if (isset($_GET['error']) && $_GET['error'] == 'gagal'): ?>
-    <div id="loginsalah" class="text-red-500">Email atau password salah!</div>
-        <?php endif; ?>
-     <div class="w-52 my-0 bg-white h-auto p-3 mx-auto hidden" id="loginsalah">
-            <h1 class="text-xl text-red-500 ">Login gagal, password atau email salah</h1>
-     </div>
-    <script src="/app/asset/js/main.js">  </script>
+  <div class="w-full max-w-md bg-white rounded-xl shadow-xl p-6">
+    <!-- Tab menu -->
+    <div class="flex justify-around text-lg font-semibold mb-6">
+      <h1 id="Login" onclick="switchForm('login')" class="cursor-pointer isSelected transition duration-200">Login</h1>
+      <h1 id="Daftar" onclick="switchForm('register')" class="cursor-pointer transition duration-200">Daftar</h1>
+    </div>
+
+    <!-- Login Form -->
+    <form action="login.php" method="post" id="loginForm" class="flex flex-col gap-4">
+      <input type="text" name="email" placeholder="Email" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+      <input type="password" name="password" placeholder="Password" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+      <button type="submit" class="bg-purple-500 text-white p-2 rounded-md hover:bg-purple-600 transition duration-300">Login</button>
+    </form>
+
+    <!-- Register Form -->
+    <form action="register.php" method="post" id="registerForm" class="flex flex-col gap-4 hidden">
+      <input type="text" name="username" placeholder="Username" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+      <input type="text" name="email" placeholder="Email" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+      <input type="password" name="password" placeholder="Password" class="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+      <button type="submit" class="bg-purple-500 text-white p-2 rounded-md hover:bg-purple-600 transition duration-300">Daftar</button>
+    </form>
+    <?php if (isset($_GET['error']) && $_GET['error'] == 'gagal'): ?>
+      <div class="mt-4 text-center text-red-500 text-sm font-medium">
+        Email atau password salah!
+      </div>
+    <?php endif; ?>
+  </div>
+
+  <script>
+     function switchForm(form) {
+  const loginTab = document.getElementById('Login');
+  const daftarTab = document.getElementById('Daftar');
+  const loginForm = document.getElementById('loginForm');
+  const registerForm = document.getElementById('registerForm');
+
+  if (form === 'login') {
+    loginTab.classList.add('isSelected');
+    daftarTab.classList.remove('isSelected');
+    loginForm.classList.remove('hidden');
+    registerForm.classList.add('hidden');
+  } else {
+    daftarTab.classList.add('isSelected');
+    loginTab.classList.remove('isSelected');
+    registerForm.classList.remove('hidden');
+    loginForm.classList.add('hidden');
+  }
+}
+  </script>
 </body>
 </html>
