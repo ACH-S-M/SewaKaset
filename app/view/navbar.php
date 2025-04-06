@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="app/asset/css/main.css">
-    <link href="/dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 <body>
@@ -12,7 +12,7 @@
             <ul class="w-3/4 flex gap-7 ">
                 <li ><a class="text-white hover:text-yellow-500 cursor-pointer" href="http://sewakaset.test/">Dashboard</a></li>
                 <li class="text-white hover:text-yellow-500 cursor-pointer">Produk</li>
-                <li class="text-white hover:text-yellow-500 cursor-pointer">Keranjang</li>
+                <li class="text-white hover:text-yellow-500 cursor-pointer" onclick="keranjang()" >Keranjang</li>
                 <li class="text-white hover:text-yellow-500 cursor-pointer">Riwayat transaksi</li>
                 </ul>
                         <?php if (!isset($_SESSION['username'])):?>
@@ -29,6 +29,13 @@
                             </form>
                         <?php endif?>
                 </nav>
+
+                <script>
+                    function keranjang(){
+                        window.location.href = "http://sewakaset.test/app/view/keranjang.php";
+                    }
+                </script>
                 <script src="app/asset/js/navbar.js">  </script>
+                <script src="/app/asset/js/ajax.js"></script>
 </body>
 </html>
