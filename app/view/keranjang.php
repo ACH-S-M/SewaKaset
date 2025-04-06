@@ -1,7 +1,7 @@
 <?php 
 include '../koneksi/koneksi.php';
 include '../controller/userauth.php';
-include 'navbar.php';
+include 'navbarbg.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,10 +12,16 @@ include 'navbar.php';
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
 </head>
 <body>
-    <?php if ($_SESSION['username']): ?>
-        <h1>ada sesi </h1>
-    <?php else : ?>
-        <h1>Login akun dulu baru bisa akses keranjang </h1>
-    <?php endif ?>
+    <main>
+       <?php if (isset($_SESSION['username'])): ?>
+        <section class="bg-gray-200 w-full h-screen">
+            <h1>Keranjang kosong </h1> 
+        </section>
+        <?php else: ?>
+            <section class="bg-gray-200 w-full h-screen">
+                <H1>Silahkan Login Terlebih dahulu </H1>
+             </section>
+       <?php endif ?>
+    </main>
 </body>
 </html>

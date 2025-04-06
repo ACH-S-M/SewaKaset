@@ -32,12 +32,14 @@ include __DIR__.'/app/view/navbar.php';
                         <h1 class="text-3xl font-bold text-white">Produk Terpopuler</h1>
                         <div class="container-card  w-full h-auto mt-5 flex flex-wrap p-2 gap-6 justify-center md:justify-start">
                                 <?php foreach($listproduk as $barang) : ?>
-                                   <div class="card bg-white w-[280px] h-[360px] flex flex-col p-3 items-center shadow-inner rounded-lg hover:scale-110 hover:rounded-none transition-all " onclick="goDetail()" >
-                                          <img src="data:image/jpeg;base64,<?= base64_encode($barang['foto_produk']) ?>" alt="foto"  class="w-[200px] h-[200px] object-contain rounded-md">
-                                            <h1 class="mb-1 mt-1 text-xl font-bold"><?=$barang['namakaset'] ?></h1>
-                                            <h1 class="font-bold"><?='Rp'.$barang['harga'].',00' ?></h1>
-                                            <button class="px-6 py-3 bg-blue-900 text-white mt-4 rounded-sm">Beli </button>
-                                   </div>
+                                        <a href="http://sewakaset.test/app/view/detail.php?bukuGet=<?= $barang['IDVCD'] ?>" class="no-underline text-black">
+                                            <div class="card bg-white w-[280px] h-[360px] flex flex-col p-3 items-center shadow-inner rounded-lg hover:scale-110 hover:rounded-none transition-all">
+                                                    <img src="data:image/jpeg;base64,<?= base64_encode($barang['foto_produk']) ?>" alt="foto" class="w-[200px] h-[200px] object-contain rounded-md">
+                                                    <h1 class="mb-1 mt-1 text-xl font-bold"><?= $barang['namakaset'] ?></h1>
+                                                    <h1 class="font-bold"><?='Rp'.$barang['harga'].',00' ?></h1>
+                                                    <button class="px-6 py-3 bg-blue-900 text-white mt-4 rounded-sm">Beli</button>
+                                            </div>
+                                         </a>
                              <?php endforeach ?>    
                          </div>  
                     </section>

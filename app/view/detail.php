@@ -2,7 +2,14 @@
 include '../controller/userauth.php';
 include '../koneksi/koneksi.php';
 include '../model/produkModel.php';
-include 'navbar.php';
+include 'navbarbg.php';
+
+    $id = $_GET['bukuGet'];
+    $sql = "SELECT * FROM vcd where IDVCD=$id";
+    $query = mysqli_query($koneksi,$sql);
+    $data = mysqli_fetch_assoc($query);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,10 +20,18 @@ include 'navbar.php';
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
 </head>
 <body>
-    <?php if($_SESSION['username']): ?>
-        <h1>Ini ada ah sesi nya</h1>
-    <?php else: ?>
-        <h1>gaada deh </h1>
-    <?php endif ?>
+    <main>
+        <section class="detail flex p-6 gap-6">
+             <img src="data:image/jpeg;base64,<?= base64_encode($data['foto_produk']) ?>" alt="foto"  class="w-[400px] h-[300px] object-contain rounded-md">
+                <div class="title-content">
+                    <h1 class="text-3xl font-bold" ><?php echo $data['namakaset']?> </h1>
+                    <h1 class="text-xl " ><?php echo 'IDR. '.$data['harga'].',00'?> </h1>
+                </div>
+       
+        </section>
+        <section class="more">
+    
+        </section>
+    </main>
 </body>
 </html>
