@@ -13,6 +13,7 @@ session_start();
         if ($login && password_verify($password,$login['password'])){
             $_SESSION['email'] = $login['email'];
             $_SESSION['username'] = $login['username'];
+            $_SESSION['IDPEMBELI'] = $login['IDPEMBELI'];
             header('location:http://sewakaset.test/');
         }else {
           echo "<script>

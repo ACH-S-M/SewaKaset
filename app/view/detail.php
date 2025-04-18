@@ -3,12 +3,27 @@ include '../controller/userauth.php';
 include '../koneksi/koneksi.php';
 include '../model/produkModel.php';
 include 'navbarbg.php';
-
-    $id = $_GET['bukuGet'];
-    $sql = "SELECT * FROM vcd where IDVCD=$id";
-    $query = mysqli_query($koneksi,$sql);
-    $data = mysqli_fetch_assoc($query);
-
+class getItem{
+    private $koneksi;
+    public function __construct($konek){
+        $this->koneksi = $konek;
+    }
+    function query(){
+        $id = $_GET['bukuGet'] ;
+        $sql = "SELECT * FROM vcd where IDVCD=$id";
+        $query = mysqli_query($this->koneksi,$sql);
+        if (!$query){
+            die('gagal menyambungkan'.mysqli_error($this->koneksi));
+        }
+        return $dataitem = mysqli_fetch_assoc($query);
+    }
+   }
+ if (isset($_GET['bukuGet'])){
+    $item = new getItem($koneksi);
+    $data = $item->query();
+    var_dump($data['IDVCD']);
+ }
+ 
 
 ?>
 <!DOCTYPE html>
@@ -32,7 +47,8 @@ include 'navbarbg.php';
     <div class="title-content flex flex-col justify-between">
         <div>
             <h1 class="text-2xl md:text-3xl font-bold text-center md:text-left">
-                <?= $data['namakaset'] ?>
+                <?php echo $data['namakaset']?>
+
             </h1>
             <h2 class="text-lg md:text-xl text-center md:text-left mt-2">
                 Rp. <?= $data['harga'] ?>,00
@@ -45,11 +61,15 @@ include 'navbarbg.php';
 
         <!-- BUTTON -->
         <div class="action-btn mt-6">
-            <form action="" class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center md:justify-start">
-                <button class="bg-blue-800 rounded-md text-white px-6 py-2 text-sm w-full sm:w-auto">
+            <!-- //masing masing kasih parameter di url deh make action yg beda beda, nanti tangkep ID sesuai konteks --> 
+             <a href="http:/\/sewakaset.test/app/view/sewa.php?sewaKaset=<?=$data['IDVCD']?>">
+             <button class="bg-blue-800 rounded-md text-white px-6 py-2 text-sm w-full sm:w-auto" type="submit">
                     Sewa
                 </button>
-                <button class="bg-green-500 rounded-md text-white px-6 py-2 text-sm w-full sm:w-auto flex items-center justify-center gap-2">
+             </a>
+
+            <form>
+                <button class="bg-green-500 rounded-md text-white px-6 py-2 text-sm w-full sm:w-auto flex items-center justify-center gap-2" type="submit">
                     <i class="fa-solid fa-cart-shopping"></i>
                     Tambah ke Keranjang
                 </button>

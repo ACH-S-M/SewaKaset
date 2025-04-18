@@ -15,7 +15,7 @@
 <nav class="bg-transparent fixed w-full z-50 px-6 py-4" id="nav">
   <div class="flex justify-between items-center">
     <!-- Brand / Logo -->
-    <div class="text-xl font-bold">SewaKaset</div>
+    <div class="text-xl font-bold">GameIfyCenter</div>
 
     <!-- Burger Icon -->
     <div class="md:hidden">

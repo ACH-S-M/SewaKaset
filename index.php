@@ -4,7 +4,6 @@ include __DIR__ . '/app/koneksi/koneksi.php';
 include __DIR__.'/app/model/produkModel.php';
 include __DIR__.'/app/view/navbar.php';
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

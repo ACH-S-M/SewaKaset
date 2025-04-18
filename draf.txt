@@ -23,3 +23,5 @@ let daftar = document.getElementById('Daftar')
                     console.error("Gagal memuat halaman:", error);
                 });
     }
+
+onclick="window.location.href = 'http:/\/sewakaset.test/app/view/login.php'"

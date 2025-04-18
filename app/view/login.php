@@ -21,7 +21,11 @@ $auth->userLogin($userData['email'],$userData['password']);
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .isSelected {
-      @apply border-b-4 border-sky-500 text-sky-500;
+     background-color: darkblue;
+     color: white;
+     padding: 8px;
+     border-radius: 4px;
+
     }
   </style>
 </head>
